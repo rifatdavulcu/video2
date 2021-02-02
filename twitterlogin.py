@@ -8,14 +8,13 @@ class Twitter:
         self.browser = webdriver.Chrome()
         self.email = email
         self.password = password
-        self.tweet = tweet
-
+        self.tweet=tweet
     def signIn(self):
         self.browser.get("https://twitter.com/login")
         time.sleep(3)
 
-        emailInput = self.browser.find_element_by_xpath("//*[@id='react-root']/div/div/div[2]/main/div/div/form/div/div[1]/label/div/div[2]/div/input")
-        passwordInput = self.browser.find_element_by_xpath("//*[@id='react-root']/div/div/div[2]/main/div/div/form/div/div[2]/label/div/div[2]/div/input")
+        emailInput = self.browser.find_element_by_xpath("//*[@id='react-root']/div/div/div[2]/main/div/div/div[2]/form/div/div[1]/label/div/div[2]/div/input")
+        passwordInput = self.browser.find_element_by_xpath("//*[@id='react-root']/div/div/div[2]/main/div/div/div[2]/form/div/div[2]/label/div/div[2]/div/input")
         time.sleep(5)
 
         emailInput.send_keys(self.email)
@@ -33,5 +32,3 @@ class Twitter:
 twtr = Twitter(email,password,tweet)
 twtr.signIn()
 twtr.tweeting()
-
-
